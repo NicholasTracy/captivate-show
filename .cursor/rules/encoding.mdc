@@ -1,0 +1,14 @@
+---
+description: Always write source files as UTF-8 without BOM on this repo
+globs: **/*.{ts,tsx,js,jsx,json}
+alwaysApply: false
+---
+
+# File encoding (critical)
+
+On this Windows machine, Cursor agent file writes can occasionally corrupt to UTF-16 (even on local SSDs).
+
+- All `.ts`, `.tsx`, `.js`, `.json` files MUST be UTF-8 without BOM
+- Prefer `StrReplace` over full `Write` when possible
+- After bulk edits, run `npm run fix-encoding`
+- esbuild/Vite fail on UTF-16 with `Expected ";" but found "\x00"`

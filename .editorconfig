@@ -1,0 +1,10 @@
+# Enforce UTF-8 for all source files (esbuild/tsc require UTF-8)
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+
+[*.{ts,tsx,js,jsx,json,mjs,cjs}]
+charset = utf-8
